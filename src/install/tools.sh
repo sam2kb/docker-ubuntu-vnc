@@ -2,9 +2,15 @@
 ### every exit != 0 fails the script
 set -e
 
-echo "Install some common tools for further installation"
-apt-get install -y vim wget net-tools locales bzip2 \
-    python-numpy #used for websockify/novnc
+echo "Install some common packages"
+apt-get install -y \
+  && wget \
+  && curl \
+  && mousepad \
+  && net-tools \
+  && dnsutils \
+  && locales \
+  && bzip2
 
-echo "generate locales für en_US.UTF-8"
+echo "Generate locales for en_US.UTF-8"
 locale-gen en_US.UTF-8
