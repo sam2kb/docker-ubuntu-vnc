@@ -9,10 +9,10 @@ USAGE:
 docker run -it -p 5901:5901 wittyfinch/ubuntu-vnc:<tag> <option>
 
 TAGS:
-latest  stable version of branch 'master'
+latest stable version of branch 'master'
 
 OPTIONS:
--w, --wait      (default) keeps the UI and the vncserver up until SIGINT or SIGTERM will received
+-w, --wait      (default) keeps the UI and the vncserver up until SIGINT or SIGTERM is received
 -s, --skip      skip the vnc startup and just execute the assigned command.
                 example: docker run wittyfinch/ubuntu-vnc --skip bash
 -d, --debug     enables more detailed startup output
@@ -89,7 +89,7 @@ echo -e "\nVNCSERVER started on DISPLAY= $DISPLAY \n\t=> connect via VNC viewer 
 
 
 if [[ $DEBUG == true ]] || [[ $1 =~ -t|--tail-log ]]; then
-    echo -e "\n----------- HOME/.vnc/*$DISPLAY.log"
+    echo -e "\n----------- $HOME/.vnc/*$DISPLAY.log"
     # if option `-t` or `--tail-log` block the execution and tail the VNC log
     tail -f $STARTUPDIR/*.log $HOME/.vnc/*$DISPLAY.log
 fi
