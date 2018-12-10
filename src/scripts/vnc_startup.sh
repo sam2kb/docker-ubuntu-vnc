@@ -79,6 +79,8 @@ vncserver -kill $DISPLAY &> $STARTUPDIR/vnc_startup.log \
 echo -e "start vncserver with param: VNC_COL_DEPTH=$VNC_COL_DEPTH, VNC_RESOLUTION=$VNC_RESOLUTION\n..."
 if [[ $DEBUG == true ]]; then echo "vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION"; fi
 vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION &> $STARTUPDIR/vnc_startup.log &
+PID_SUB=$!
+
 echo -e "start window manager\n..."
 $HOME/wm_startup.sh &> /dev/null
 
@@ -93,7 +95,7 @@ if [[ $DEBUG == true ]] || [[ $1 =~ -t|--tail-log ]]; then
 fi
 
 if [ -z "$1" ] || [[ $1 =~ -w|--wait ]]; then
-    wait $!
+    wait $PID_SUB
 else
     # unknown option ==> call command
     echo -e "\n\n----------- EXECUTE COMMAND"
