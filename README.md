@@ -79,9 +79,9 @@ The following VNC environment variables can be overwritten at the `docker run` p
 
 
 #### 3.1 Example: Override the VNC password
-Simply overwrite the value of the environment variable `VNC_PW`:
+Simply overwrite the value of the environment variable `VNC_PW`. Warning: There is a limitation in VNC protocol where only the first 8 characters are actually used in the password, so you need to always connect to VNC server over an SSH tunnel, always!:
 
-    docker run -it -p 5901:5901 -e VNC_PW=randompassword wittyfinch/ubuntu-vnc
+    docker run -it -p 127.0.0,1:5901:5901 -e VNC_PW=randompass wittyfinch/ubuntu-vnc
 
 
 #### 3.2 Example: Override the VNC resolution
