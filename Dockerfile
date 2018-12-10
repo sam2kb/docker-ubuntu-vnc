@@ -18,7 +18,8 @@ WORKDIR $HOME
 
 ### Add install scripts for further steps
 ADD ./src/install/ $INST_SCRIPTS/
-RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
+RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} + \
+  && apt-get update
 
 ### Install some common tools
 RUN $INST_SCRIPTS/tools.sh
@@ -37,7 +38,10 @@ ADD ./src/xfce/ $HOME/
 ### configure startup
 RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/scripts $STARTUPDIR
-RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
+RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME \
+  && apt-get autoremove -y \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 USER 1000
 
