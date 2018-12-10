@@ -84,4 +84,4 @@ Simply overwrite the value of the environment variable `VNC_RESOLUTION`. For exa
 ### 4) View only VNC
 It's possible to prevent unwanted control via VNC. Therefore you can set the environment variable `VNC_VIEW_ONLY=true`. If set, the startup script will create a random password for the control connection and use the value of `VNC_PW` for view only connection over the VNC connection.
 
-     docker run -it -p 5901:5901 -e VNC_VIEW_ONLY=true wittyfinch/ubuntu-vnc
+    docker run -it -p 5901:5901 -e VNC_VIEW_ONLY=true wittyfinch/ubuntu-vnc

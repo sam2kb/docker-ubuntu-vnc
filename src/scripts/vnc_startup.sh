@@ -6,7 +6,7 @@ set -e
 help (){
 echo "
 USAGE:
-docker run -it -p 5901:5901 consol/<image>:<tag> <option>
+docker run -it -p 5901:5901 wittyfinch/ubuntu-vnc:<tag> <option>
 
 TAGS:
 latest  stable version of branch 'master'
@@ -14,9 +14,9 @@ latest  stable version of branch 'master'
 OPTIONS:
 -w, --wait      (default) keeps the UI and the vncserver up until SIGINT or SIGTERM will received
 -s, --skip      skip the vnc startup and just execute the assigned command.
-                example: docker run consol/centos-xfce-vnc --skip bash
+                example: docker run wittyfinch/ubuntu-vnc --skip bash
 -d, --debug     enables more detailed startup output
-                e.g. 'docker run consol/centos-xfce-vnc --debug bash'
+                e.g. 'docker run wittyfinch/ubuntu-vnc --debug bash'
 -h, --help      print out this help
 "
 }
