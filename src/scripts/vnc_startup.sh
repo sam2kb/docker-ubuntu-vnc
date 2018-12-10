@@ -69,6 +69,7 @@ fi
 echo "$VNC_PW" | vncpasswd -f >> $PASSWD_PATH
 chmod 600 $PASSWD_PATH
 
+PID_SUB=$!
 
 ## start vncserver
 echo -e "\n----------- start VNC server"
