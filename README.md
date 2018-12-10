@@ -1,6 +1,7 @@
 # A small Ubuntu container with "headless" VNC session and Xfce4 desktop
 
 This work is a simplified and refactored version of https://github.com/ConSol/docker-headless-vnc-container
+
 Latest Ubuntu 18.04, updated installers, removed browsers and noVNC
 
 ## Usage
